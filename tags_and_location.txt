@@ -1,0 +1,12 @@
+User ID : 85276564, Location : Tōkyō, Input Keyword : takoyaki
+User ID : 2920816603, Location : Ōsaka, Input Keyword : takoyaki
+User ID : 589674136, Location : Ibaraki, Input Keyword : takoyaki
+User ID : 110397306, Location : Shizuoka, Input Keyword : takoyaki
+User ID : 1151352794, Location : Tōkyō, Input Keyword : takoyaki
+User ID : 1183293668, Location : Saitama, Input Keyword : takoyaki
+User ID : 91549292, Location : Ōsaka, Input Keyword : takoyaki
+User ID : 1183293668, Location : Saitama, Input Keyword : takoyaki
+User ID : 154578625, Location : Tōkyō, Input Keyword : takoyaki
+User ID : 71262527, Location : Fukuoka, Input Keyword : takoyaki
+User ID : 124608031, Location : Ōsaka, Input Keyword : takoyaki
+User ID : 323729402, Location : Tōkyō, Input Keyword : takoyaki

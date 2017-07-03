@@ -2,7 +2,7 @@
   "name": "tags_mining",
   "version": "1.0.0",
   "description": "Testing Twitter API",
-  "main": "bot.js",
+  "main": "tag_mining.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },

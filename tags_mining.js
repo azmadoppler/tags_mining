@@ -1,7 +1,6 @@
 console.log('testing bot is started');
 
 var Twit = require('twit');
-var config = require('./config');
 var fs = require('fs');
 var geoUser = [];
 
@@ -13,10 +12,11 @@ var T = new Twit({
 });//insert your config here
 
 var currentID ;
+var searchParameter = 'takoyaki';
 function loopingTwitter(){
   //insert your parameter here
   var params = {
-    q: "takoyaki -RT" ,//insert tags here
+    q: searchParameter + " -RT" ,//insert tags here
     // q: "I\'m at -RT",
     count: 100,
     result_type: 'recent',
@@ -31,7 +31,7 @@ function loopingTwitter(){
 
 var miningApp = setInterval(function(){
   loopingTwitter();
-}, 5*1000);
+}, 3*1000);
 
 function favouriteMining(){
   T.get('favorites/list', fav, printFav);
@@ -47,17 +47,17 @@ function retrieveTweet(err, data, response) {
     //Data Collection Part
     let tweets = data.statuses;
     for(var i = 0; i < tweets.length ; i ++){
-    if(tweets[i].coordinates != null) {
-      let writtingText = "User ID : " + tweets[i].user.id_str +" , Lattitute : " + tweets[i].coordinates.coordinates[1] + ", Longitute : " +
-      tweets[i].coordinates.coordinates[0]+", Tweet Number : "+ tweets[i].id_str+ ", Tweet Status : "+ tweets[i].text  ;
-      console.log(writtingText);
-      geoUser.push(writtingText);
-    }
-        currentID = tweets[i].id_str;
+      if(tweets[i].coordinates != null) {
+        let writtingText = "User ID : " + tweets[i].user.id_str +" , Lattitute : " + tweets[i].coordinates.coordinates[1] + ", Longitute : " +
+        tweets[i].coordinates.coordinates[0]+", Input Parameter : "+ searchParameter + ", Tweet Status : "+ tweets[i].text  ;
+        console.log(writtingText);
+        geoUser.push(writtingText);
+      }
+      currentID = tweets[i].id_str;
     }
 
     //Writing to File Part
-    // writeToText();
+    writeToText();
   }
 }
 function writeToText(){
@@ -72,7 +72,7 @@ function writeToText(){
       toTxt += geoUser[i] + "\n";
     }
   }
-  var textName = "user_with_keywords.txt"; //output file name
+  var textName = "user_with_tag.txt"; //output file name
   fs.appendFile(textName, toTxt , function (err) {
     if (err) throw err;
     console.log('Saved!');
